@@ -3,9 +3,16 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+NASM_VERSION="2.11.08"
+IMAGE_MAGICK_VERSION="7.0.8-46"
+JPEGTURBO_VERSION="1.4.0"
+LIBWEBP_VERSION="0.4.3"
+
+CACHE_BUSTER="$NASM_VERSION-$IMAGE_MAGICK_VERSION-$JPEGTURBO_VERSION-$LIBWEBP_VERSION"
+
 VENDOR_DIR="$BUILD_DIR/vendor"
 INSTALL_DIR="$VENDOR_DIR/imagemagick-webp"
-CACHE_FILE="$CACHE_DIR/imagemagick-webp.tar.gz"
+CACHE_FILE="$CACHE_DIR/$CACHE_BUSTER-imagemagick-webp.tar.gz"
 
 mkdir -p $CACHE_DIR
 mkdir -p $VENDOR_DIR
@@ -16,7 +23,7 @@ if [ ! -f $CACHE_FILE ]; then
 
   # install nasm
 
-  NASM_VERSION="2.11.08"
+
   NASM_FILE="nasm-$NASM_VERSION.tar.gz"
   NASM_DIR="nasm-$NASM_VERSION"
   NASM_URL="http://www.nasm.us/pub/nasm/releasebuilds/$NASM_VERSION/$NASM_FILE"
@@ -33,7 +40,7 @@ if [ ! -f $CACHE_FILE ]; then
 
   # install jpegturbo
 
-  JPEGTURBO_VERSION="1.4.0"
+
   JPEGTURBO_FILE="libjpeg-turbo-$JPEGTURBO_VERSION.tar.gz"
   JPEGTURBO_DIR="libjpeg-turbo-$JPEGTURBO_VERSION"
   JPEGTURBO_URL="http://sourceforge.net/projects/libjpeg-turbo/files/$JPEGTURBO_VERSION/$JPEGTURBO_FILE/download"
@@ -50,7 +57,7 @@ if [ ! -f $CACHE_FILE ]; then
 
   # install libwebp
 
-  LIBWEBP_VERSION="0.4.3"
+
   LIBWEBP_FILE="libwebp-$LIBWEBP_VERSION.tar.gz"
   LIBWEBP_DIR="libwebp-$LIBWEBP_VERSION"
   LIBWEBP_URL="http://downloads.webmproject.org/releases/webp/$LIBWEBP_FILE"
@@ -67,7 +74,7 @@ if [ ! -f $CACHE_FILE ]; then
 
   # install imagemagick
 
-  IMAGE_MAGICK_VERSION="7.0.8-46"
+
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
   IMAGE_MAGICK_URL="http://www.imagemagick.org/download/releases/$IMAGE_MAGICK_FILE"
